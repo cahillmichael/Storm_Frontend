@@ -1,0 +1,76 @@
+body {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-image: linear-gradient(to right, #3c6dc3, #230554);
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bolder;
+    padding: 3%;
+}
+
+.input-field {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 14;
+    border: 2px solid #3c6dc3;
+    border-radius: 5px;
+    padding: 3%;
+  }
+
+  .input-column {
+     padding: 1.5%;
+  }
+
+  .submit-btn {
+    font-size: 14;
+    text-decoration:none;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #3c6dc3;
+    color: white;
+    border: none;
+  }
+
+  .search-history {
+      border-top: 2px solid lightgrey;
+      margin-top: 20px;
+  }
+
+  .forecast-block {
+      padding: 3%;
+      border: solid 2px lightgrey;
+      border-radius: 3px;
+      margin: 20px 20px 20px 0px;
+  }
+
+  .week-forecast-block {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+ .forecast-column {
+     padding: 0 3%;
+ }
