@@ -30,6 +30,7 @@ function citySearch(event) {
 
                 apiCity = data.name;
                 coordSearch(coord);
+                cityName.value="";
             })
         } else {
             alert("City not found. Try again.");
@@ -110,8 +111,8 @@ function saveSearch() {
         console.log(searchHistory);
         console.log(apiCity);
         var prevSearchBtn = document.createElement("button");
-        prevSearchBtn.classList = "history-btn";
-        prevSearchBtn.textcontent = "Testing";
+        prevSearchBtn.className = "history-btn";
+        prevSearchBtn.innerText = apiCity;
         prevSearchBtn.addEventListener("click", function(event) {citySearch(event.target.textContent)});
 
         searchHistoryBox.appendChild(prevSearchBtn);
