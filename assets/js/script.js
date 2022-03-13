@@ -54,7 +54,8 @@ function coordSearch(coord) {
 
 function displayCurrent(data) {
     displayCurrentBox.innerHTML="";
-    //display current weather
+    displayForecastBox.innerHTML="";
+
     var headerEl = document.createElement("h2")
     headerEl.innerHTML = city + " (" + moment(data.current.dt, "X").format("MM/DD/YYYY") + ") <img src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png'>";
 
@@ -82,32 +83,21 @@ function displayCurrent(data) {
     displayCurrentBox.append(humidityEl);
     displayCurrentBox.append(uviEl);
 
-    // displayForecast(coord);
+    displayForecast(data);
 };
 
-// function displayForecast(coord) {
-
-    
-
-//                 //from tomorrow (i=1) to five days hence (i=5), append forecast box with data tiles
-//                 for (let i = 1; i <= 5; i++) {
-//                     displayForecastBox.innerHTML += 
-//                         `<div class="forecast-tile">
-//                             <h4>${moment(data.daily[i].dt, "X").format("MM/DD/YYYY")}</h5>
-//                             <img src='http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png'>
-//                             <p class="forecast-stat">Temp: ${data.daily[i].temp.day}&#176;F</p>
-//                             <p class="forecast-stat">Wind: ${data.daily[i].wind_speed} MPH</p>
-//                             <p class="forecast-stat">Humidity: ${data.daily[i].humidity}%</p>
-//                         </div>`  
-//                 };
-            
-
-//             //add UV index to current forecast
-//         } else {
-//             alert("City not found. Try again.");
-//         };
-//     });
-// };
-
+function displayForecast(data) {
+//from tomorrow (i=1) to five days hence (i=5), append forecast box with data tiles
+for (let i = 1; i <= 5; i++) {
+    displayForecastBox.innerHTML += 
+        `<div class="forecast-tile">
+            <h4>${moment(data.daily[i].dt, "X").format("MM/DD/YYYY")}</h5>
+            <img src='http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png'>
+            <p class="forecast-stat">Temp: ${data.daily[i].temp.day}&#176;F</p>
+            <p class="forecast-stat">Wind: ${data.daily[i].wind_speed} MPH</p>
+            <p class="forecast-stat">Humidity: ${data.daily[i].humidity}%</p>
+        </div>`  
+    };
+};
 
 submitBtn.addEventListener("click", citySearch);
