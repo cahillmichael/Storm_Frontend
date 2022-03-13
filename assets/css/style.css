@@ -26,6 +26,10 @@ h2 {
     font-weight: bolder;
 }
 
+h4 {
+    color: white;
+}
+
 .current-stat {
     font-size: 30;
 }
@@ -79,10 +83,6 @@ h2 {
      padding: 0 3%;
  }
 
-h4 {
-    color: white;
-}
-
  .forecast-stat {
      color: white;
  }
@@ -97,14 +97,32 @@ h4 {
      background-color: green;
      color: white;
      padding: 1%;
+     border-radius: 3px;
  }
 
  .uvi-moderate {
      background-color: yellow;
      color: black;
+     padding: 1%;
+     border-radius: 3px;
  }
 
  .uvi-severe {
      background-color: red;
      color: white;
+     padding: 1%;
+     border-radius: 3px;
  }
+
+ .history-btn {
+    font-size: 14;
+    text-decoration:none;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: lightgrey;
+    color: black;
+    border: none;
+  }

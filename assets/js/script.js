@@ -1,10 +1,12 @@
 var apiKey ="81faa6138422d76a66a3fc36274723e6";
-submitBtn = document.querySelector("#submit-btn");
-cityName = document.querySelector("#city-name");
-displayCurrentBox = document.querySelector("#current-weather");
-displayForecastBox = document.querySelector("#week-forecast")
-var city;
-coord = [];
+var submitBtn = document.querySelector("#submit-btn");
+var cityName = document.querySelector("#city-name");
+var displayCurrentBox = document.querySelector("#current-weather");
+var displayForecastBox = document.querySelector("#week-forecast");
+var searchHistoryBox = document.querySelector("#history-block");
+var apiCity;
+var searchHistory = [];
+var coord = [];
 
 
 function citySearch(event) {
@@ -26,7 +28,7 @@ function citySearch(event) {
                 var lon = data.coord.lon;
                 coord.push(lon);
 
-                city = data.name;
+                apiCity = data.name;
                 coordSearch(coord);
             })
         } else {
@@ -42,6 +44,7 @@ function coordSearch(coord) {
         if (response.ok) {
             response.json().then(function(data) {
                 displayCurrent(data);
+                saveSearch();
 //console!!!!                
                 console.log(data);
                 console.log(coord);
@@ -57,7 +60,7 @@ function displayCurrent(data) {
     displayForecastBox.innerHTML="";
 
     var headerEl = document.createElement("h2")
-    headerEl.innerHTML = city + " (" + moment(data.current.dt, "X").format("MM/DD/YYYY") + ") <img src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png'>";
+    headerEl.innerHTML = apiCity + " (" + moment(data.current.dt, "X").format("MM/DD/YYYY") + ") <img src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png'>";
 
     var tempEl = document.createElement("p");
     tempEl.textContent = "Temp: " + data.current.temp + "°F"
@@ -99,5 +102,22 @@ for (let i = 1; i <= 5; i++) {
         </div>`  
     };
 };
+
+function saveSearch() {
+    if(!searchHistory.includes(apiCity)) {
+        searchHistory.push(apiCity);
+        localStorage.setItem("searches", JSON.stringify(searchHistory));
+        console.log(searchHistory);
+        console.log(apiCity);
+        var prevSearchBtn = document.createElement("button");
+        prevSearchBtn.classList = "history-btn";
+        prevSearchBtn.textcontent = "Testing";
+        prevSearchBtn.addEventListener("click", function(event) {citySearch(event.target.textContent)});
+
+        searchHistoryBox.appendChild(prevSearchBtn);
+    };
+};
+
+// function loadHistory
 
 submitBtn.addEventListener("click", citySearch);
