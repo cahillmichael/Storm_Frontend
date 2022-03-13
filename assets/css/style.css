@@ -92,3 +92,19 @@ h4 {
      padding: 2%;
      margin: 0px 2px;
  }
+
+ .uvi-favorable {
+     background-color: green;
+     color: white;
+     padding: 1%;
+ }
+
+ .uvi-moderate {
+     background-color: yellow;
+     color: black;
+ }
+
+ .uvi-severe {
+     background-color: red;
+     color: white;
+ }
