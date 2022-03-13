@@ -23,7 +23,7 @@
           <h2>Search for a City:</h2>
           <form id="input-form">
             <input id="city-name" type="text" autofocus="true" class="input-field" placeholder="City"/>
-            <button type="submit" class="submit-btn">Search</button>
+            <button type="submit" id="submit-btn" class="submit-btn">Search</button>
           </form>
         </div>
         
@@ -33,14 +33,15 @@
       </div>
 
       <div class="col-9 forecast-column">
-            <div id="forecast-block" class="forecast-block"></div>
+            <div id="current-weather" class="current-weather-block"></div>
 
             <h3>5-Day Forecast:</h3>
 
-            <div id="week-forecast-block" class="week-forecast-block"></div>
+            <div id="week-forecast" class="week-forecast-block"></div>
       </div>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
