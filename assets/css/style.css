@@ -72,8 +72,23 @@ h2 {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      margin-top: 5px;
   }
 
  .forecast-column {
      padding: 0 3%;
+ }
+
+h4 {
+    color: white;
+}
+
+ .forecast-stat {
+     color: white;
+ }
+
+ .forecast-tile {
+     background-color:#33475a;
+     padding: 2%;
+     margin: 0px 2px;
  }
