@@ -24,7 +24,10 @@ main {
 h2 {
     font-size: 30px;
     font-weight: bolder;
-    padding: 3%;
+}
+
+.current-stat {
+    font-size: 30;
 }
 
 .input-field {
